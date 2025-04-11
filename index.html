@@ -70,6 +70,37 @@
 		<p>Fresh orange juice $5</p>
 
 
+
+		<h2>Place Your Order</h2>
+<form id="order-form">
+  <input type="text" name="name" placeholder="Your name" required />
+  <input type="text" name="item" placeholder="Item name" required />
+  <button type="submit">Place Order</button>
+</form>
+
+<p id="ticket-response"></p>
+
+<script>
+  document.getElementById("order-form").addEventListener("submit", async function (e) {
+    e.preventDefault();
+    
+    const formData = new FormData(this);
+    const name = formData.get("name");
+    const item = formData.get("item");
+
+    const response = await fetch("https://tastycupcafe.onrender.com/order", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name, item }),
+    });
+
+    const data = await response.json();
+    document.getElementById("ticket-response").textContent = `Your ticket number is ${data.ticket}`;
+  });
+</script>
+
+
+
 	</div>
 	</div>
 
