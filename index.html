@@ -23,23 +23,21 @@
   position: relative;
 }
 
-body::before,
-body::after {
-  content: "";
-  position: flex;
-  top: 0;
-  bottom: 0;
-  width: 20vw; /* 20% of screen width */
-  background-color: #fcc73d;
-  z-index: -1;
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background-color: #fcc73d; /* Yellow background now for full page */
+  display: flex;
+  justify-content: center;
 }
 
-body::before {
-  left: 0;
-}
-
-body::after {
-  right: 0;
+.bordered-page {
+  background-color: #fff;
+  padding: 20px;
+  max-width: 800px;
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 100vh;
 }
 
 img {
